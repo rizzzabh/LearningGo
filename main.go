@@ -3,5 +3,10 @@ package main
 import "fmt"
 
 func main(){
-	fmt.Println("hello world")
+	const name = "Rishabh" 
+	const surName = "Mishra" 
+
+	msg := fmt.Sprintf("Hi %v %v, welcome to my Club" , name , surName) 
+
+	fmt.Println(msg)
 }
