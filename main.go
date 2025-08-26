@@ -2,25 +2,36 @@ package main
 
 import "fmt"
 
-type car struct {
-	make string 
-	model string 
+type Animal interface {
+	eat()
+	haveSex()
 }
-type truck struct {
-	car 
-	bigWheel int 
+type Person struct {
+	name string 
+	age int 
+	language string
 }
+
+func (p Person) speak() {
+	 fmt.Printf("I speak %s language" , p.language) 
+}
+
+func (p Person) eat(){
+	fmt.Println("I only eat")
+}
+func (p Person) haveSex(){
+	fmt.Println("I do have sex")
+}
+
 func main(){
-	// const name = "Rishabh" 
-	// const surName = "Mishra" 
-
-	// msg := fmt.Sprintf("Hi %v %v, welcome to my Club" , name , surName) 
-
-	// fmt.Println(msg)
-
-	truckDriver := truck{} 
-
-	truckDriver.model = "AmitabhBachhan" 
-
-	fmt.Println(truckDriver.model)
+	p1 := Person{name : "Rishabh" , age : 19 , language : "Hindi"}
+	p1.eat()
+	var prasann Animal
+	prasann = p1 
+	_ , ok := prasann.(Person)
+	if ok {
+		fmt.Println("Ok ho gaya")
+	}else{
+		fmt.Println("nahi kar raha hai")
+	}
 }
