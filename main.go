@@ -14,9 +14,26 @@ func divide (x int , y int) (int , error ){
 
 	return x / y , nil 
 }
+
+type MyError struct {
+	Code int 
+	Msg string 
+}
+
+func (e MyError) Error() string {
+	return fmt.Sprintf("Error code : %f and message : %s" , e.Code , e.Msg)
+}
+
+func risky() error {
+	return MyError{Code: 404 , Msg: "Not Found"}
+}
 func main(){
 	result , err := divide(10 , 2)
+	risk := risky() 
 
+	if risk != nil {
+		fmt.Println("Oops , " , risk)
+	}
 	if err != nil {
 		fmt.Println("Error: " , err) 
 	}else {
