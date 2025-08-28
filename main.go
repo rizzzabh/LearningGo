@@ -2,7 +2,12 @@ package main
  
 import ("fmt")
 
+
 func main(){
-	var s []int 
-	fmt.Print(s , len(s) , cap(s))
+	slice := make([]int , 2 , 3)
+	
+	slice = append(slice , 4 , 5) 
+
+	fmt.Print(slice)
+
 }
